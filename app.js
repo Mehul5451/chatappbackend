@@ -20,7 +20,7 @@ const { ChatUser, Message } = require("./modu");
 
 const io = new Server(server, {
   cors: {
-    origin: "https://mchatapp.vercel.app" "*",
+    origin: ["https://mchatapp.vercel.app",  "*"],
     methods: ["GET", "POST"]
   }
 });
