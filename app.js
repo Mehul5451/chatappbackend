@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const { Server } = require("socket.io");
+const port = process.env.PORT || 3000;
 
 
 dotenv.config();
@@ -19,7 +20,7 @@ const { ChatUser, Message } = require("./modu");
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: "https://mchatapp.vercel.app",
     methods: ["GET", "POST"]
   }
 });
@@ -161,6 +162,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(process.env.PORT, () => {
-  console.log(`Server running at http://localhost:${process.env.PORT}`);
+server.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });
